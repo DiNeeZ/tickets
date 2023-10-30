@@ -33,6 +33,14 @@
   p {
     @apply text-sm text-default-text;
   }
+
+  form {
+    @apply rounded-xl p-8;
+  }
+
+  input, select, textarea {
+    @apply rounded bg-card px-4 py-2 outline-none w-full; 
+  }
 }
 
 @layer components {

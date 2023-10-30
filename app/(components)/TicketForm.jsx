@@ -1,16 +1,20 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import FormInput from './FormInput';
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import FormInput from "./FormInput";
+import FormTextarea from "./FormTextarea";
+import FormSelect from "./FormSelect";
+
+const formCategories = ["Hardware Problem", "Software Problem", "Project"];
 
 const initialFormFields = {
-  title: '',
-  description: '',
-  category: 'Hardware Problem',
+  title: "",
+  description: "",
+  category: formCategories[0],
   priority: 1,
   progress: 0,
-  status: 'not started',
+  status: "not started",
 };
 
 const TicketForm = () => {
@@ -26,26 +30,27 @@ const TicketForm = () => {
   };
 
   return (
-    <div>
-      <h2 className="mb-4 tracking-widest">Create your ticket</h2>
-      <form className="flex flex-col gap-8">
-        <FormInput
-          name="Title"
-          value={formFields.title}
-          handleChange={handleChange}
-        />
-        <FormInput
-          name="Description"
-          value={formFields.description}
-          handleChange={handleChange}
-        />
-        <FormInput
-          name="Category"
-          value={formFields.category}
-          handleChange={handleChange}
-        />
-      </form>
-    </div>
+    <form className="flex flex-col gap-8 w-1/2 border border-card">
+      <legend className="text-2xl font-bold text-center">
+        Create your ticket
+      </legend>
+      <FormInput
+        name="Title"
+        value={formFields.title}
+        handleChange={handleChange}
+      />
+      <FormTextarea
+        name="Description"
+        value={formFields.description}
+        handleChange={handleChange}
+      />
+      <FormSelect
+        options={formCategories}
+        name="Category"
+        value={formFields.category}
+        handleChange={handleChange}
+      />
+    </form>
   );
 };
 

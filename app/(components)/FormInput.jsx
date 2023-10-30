@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
 const FormInput = ({
   name,
-  type = 'text',
+  type = "text",
   required = true,
   value,
   handleChange,
@@ -11,15 +11,16 @@ const FormInput = ({
   return (
     <div className="flex flex-col gap-2 text-default-text/80">
       <label htmlFor={id}>{name}</label>
-      <input
-        id={id}
-        name={id}
-        type={type}
-        required={required}
-        value={value}
-        onChange={handleChange}
-        className="text-dark-text rounded px-4 py-2"
-      />
+      <div className="border border-transparent focus-within:border-default-text/50 rounded">
+        <input
+          id={id}
+          name={id}
+          type={type}
+          required={required}
+          value={value}
+          onChange={handleChange}
+        />
+      </div>
     </div>
   );
 };
